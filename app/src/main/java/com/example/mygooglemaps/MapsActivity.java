@@ -92,6 +92,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng Edlingham = new LatLng(55.3767, -1.8185);
         mMap.addMarker(new MarkerOptions().position(Edlingham).title("Edlingham Castle"));
 
+        //imports json layer which acts as the boundary for the google maps
         try {
             GeoJsonLayer layer = new GeoJsonLayer(mMap, R.raw.geojson, getApplicationContext());
 
@@ -109,7 +110,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
 
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(Alnwick));
+        //Moves camera to a zoomed out view of Alnick castle which will be the centre of Northumberland
         float zoomLevel = 8.0f; //This goes up to 21
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Alnwick, zoomLevel));
     }
